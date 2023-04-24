@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 token = os.environ.get("YAGMAIL_PASS")
+print("token", token)
 # https://www.nylas.com/blog/making-use-of-environment-variables-in-python/
 # https://www.pythonanywhere.com/
 

@@ -22,7 +22,9 @@ Hi!
 while True:
   now = dt.now()
   if now.hour == 14 and now.minute == 46:
+  # if now.hour == 7:
     yag = yagmail.SMTP(user=sender, password=token)
     yag.send(to=receiver, subject=subject, contents=contents)
     print("Email Sent!")
     time.sleep(60)
+    # time.sleep(3600)
