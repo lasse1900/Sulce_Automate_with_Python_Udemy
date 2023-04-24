@@ -17,11 +17,15 @@ yag = yagmail.SMTP(user=sender, password=token)
 
 df = pandas.read_csv('contacts.csv')
 
-for index, row in df.iterrows():
-  contents = [f"""
-Here {row['name']} is the content of the email! 
-Hi!""",row['filepath'],
-  ]
-  print(row['email'])
-  yag.send(to=row['email'], subject=subject, contents=contents)
-  print("Email Sent!")
+while True:
+  now = dt.now()
+  if now.hour == 11 and now.minute == 16:
+    for index, row in df.iterrows():
+      contents = [f"""
+    Here {row['name']} is the content of the email! 
+    Hi!""",row['filepath'],
+      ]
+      print(row['email'])
+      yag.send(to=row['email'], subject=subject, contents=contents)
+      print("Email Sent!")
+    time.sleep(60)
